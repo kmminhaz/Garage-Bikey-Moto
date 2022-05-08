@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Nav} from 'react-bootstrap'
+import {Button, Nav} from 'react-bootstrap'
+import useFirebase from '../../Hooks/useFirebase';
 
 const NavBar = () => {
+  const { user, signOutUser} = useFirebase();
+
     return (
       <div>
         <nav className='navbar navbar-expand-lg navbar-light bg-light'>
@@ -21,11 +24,11 @@ const NavBar = () => {
             >
               <span className='navbar-toggler-icon'></span>
             </button>
-            <div
-              className='collapse navbar-collapse justify-content-center'
-            >
+            <div className='collapse navbar-collapse justify-content-center'>
               <Nav.Item>
-                <Nav.Link href='/home'>Home</Nav.Link>
+                <Nav.Link as={Link} to='/'>
+                  Home
+                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey='link-1'>Link</Nav.Link>
@@ -39,6 +42,19 @@ const NavBar = () => {
                 </Nav.Link>
               </Nav.Item>
             </div>
+            <Nav.Item>
+              <Nav.Link>
+                {user ? (
+                  <Button onClick={signOutUser} variant='dark'>
+                    LogOut
+                  </Button>
+                ) : (
+                  <Button as={Link} to='login' variant='dark'>
+                    LogIn
+                  </Button>
+                )}
+              </Nav.Link>
+            </Nav.Item>
           </div>
         </nav>
       </div>
