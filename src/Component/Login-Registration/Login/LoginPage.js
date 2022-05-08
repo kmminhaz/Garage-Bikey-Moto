@@ -75,7 +75,7 @@ const LoginPage = () => {
           <p className='font-small grey-text d-flex justify-content-end'>
             Not a member?{" "}
             <Link
-              to='#'
+              to='/register'
               className='blue-text mb-1 ms-2 fw-bold fs-6 text-decoration-none'
             >
               Register

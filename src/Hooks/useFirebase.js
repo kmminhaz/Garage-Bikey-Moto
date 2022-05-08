@@ -31,6 +31,7 @@ const useFirebase = () => {
             `A varification Email has been sent to ${user.reloadUserInfo.email}`
           );
         });
+        
       })
       .catch((error) => {
         setError("Email Or Password is Wrong");
