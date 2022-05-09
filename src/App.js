@@ -6,6 +6,8 @@ import Home from './Component/Home/Home';
 import Footer from './Component/Footer/Footer';
 import LoginPage from './Component/Login-Registration/Login/LoginPage';
 import Register from './Component/Login-Registration/Register/Register';
+import Inventory from './Component/Inventory/Inventory';
+import RequiredAuth from './Component/Require/RequiredAuth';
 
 function App() {
   return (
@@ -15,6 +17,14 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='login' element={<LoginPage />}></Route>
         <Route path='register' element={<Register />}></Route>
+        <Route
+          path='inventory'
+          element={
+            <RequiredAuth>
+              <Inventory />
+            </RequiredAuth>
+          }
+        ></Route>
       </Routes>
       <br /> <br />
       <Footer></Footer>

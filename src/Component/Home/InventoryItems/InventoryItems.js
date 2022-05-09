@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import image from "../../../images/carousel/image5.jpg";
 
 const InventoryItems = () => {
@@ -18,14 +19,20 @@ const InventoryItems = () => {
                   </Card.Title>
                   <Card.Text>
                     <div className='d-flex justify-content-between px-4'>
-                      <h4>Price: $300</h4>
-                      <h5>Quantity: 50</h5>
+                      <h5>
+                        Price: <strong>$300</strong>{" "}
+                      </h5>
+                      <h5>
+                        Quantity: <strong>94</strong>{" "}
+                      </h5>
                     </div>
                     This is a longer card with supporting text below as a
                     natural lead-in to additional content. This content is a
                     little bit longer.
                     <br /> <br />
-                    <Button variant='dark'>Manage Stock</Button>
+                    <Button as={Link} to='/inventory' variant='dark'>
+                      Manage
+                    </Button>
                   </Card.Text>
                 </Card.Body>
               </Card>

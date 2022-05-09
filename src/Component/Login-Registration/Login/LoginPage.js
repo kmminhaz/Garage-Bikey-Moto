@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faAmazone } from "@fortawesome/free-brands-svg-icons";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useFirebase from "../../../Hooks/useFirebase";
 
 const LoginPage = () => {
-  const { loginWithEmailAndPassword, loginInWithGoogle, success } = useFirebase();
+  const { user, loginWithEmailAndPassword, loginInWithGoogle, success } = useFirebase();
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  let redirectFrom = location?.state?.from?.pathname || '/';
+
+  if(user){
+    navigate(redirectFrom);
+  }
 
   const handleEmail = (event) =>{
     setEmail(event.target.value)
