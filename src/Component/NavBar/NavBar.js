@@ -33,16 +33,29 @@ const NavBar = () => {
             {user ? (
               <>
                 <Nav.Item>
-                  <Nav.Link>Manage Items</Nav.Link>
+                  <Nav.Link as={Link} to='/'>
+                    Manage Items
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link>Add Item</Nav.Link>
+                  <Nav.Link as={Link} to='/'>
+                    Add Item
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link>My items</Nav.Link>
+                  <Nav.Link as={Link} to='/'>
+                    My items
+                  </Nav.Link>
                 </Nav.Item>
               </>
-            ):(<></>)}
+            ) : (
+              <></>
+            )}
+            <Nav.Item>
+              <Nav.Link as={Link} to='/blog'>
+                Blog
+              </Nav.Link>
+            </Nav.Item>
           </div>
           <Nav.Item>
             <Nav.Link>

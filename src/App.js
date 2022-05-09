@@ -8,6 +8,8 @@ import LoginPage from './Component/Login-Registration/Login/LoginPage';
 import Register from './Component/Login-Registration/Register/Register';
 import Inventory from './Component/Inventory/Inventory';
 import RequiredAuth from './Component/Require/RequiredAuth';
+import Blog from './Component/Blog/Blog';
+import NotFound from './Component/NotFound/NotFound';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
             </RequiredAuth>
           }
         ></Route>
+        <Route path='blog' element={<Blog />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <br /> <br />
       <Footer></Footer>
