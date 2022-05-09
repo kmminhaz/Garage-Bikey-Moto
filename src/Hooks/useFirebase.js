@@ -31,7 +31,6 @@ const useFirebase = () => {
             `A varification Email has been sent to ${user.reloadUserInfo.email}`
           );
         });
-        
       })
       .catch((error) => {
         setError("Email Or Password is Wrong");
@@ -42,6 +41,9 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        setSuccess(
+          `You have successfully logged in as ${user.reloadUserInfo.email}`
+        );
       })
       .catch((error) => {
         setError("Email or Password is wrong");
@@ -87,7 +89,7 @@ const useFirebase = () => {
   const resetPassword = (email) => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        setSuccess(`Your password reset Email sent successfully to ${email}`);
+        setSuccess(`Your password reset Email is sent to ${email}`);
       })
       .catch((error) => {
         setError("Your password reset Email sent faliled");

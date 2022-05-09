@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faAmazone } from "@fortawesome/free-brands-svg-icons";
 import useFirebase from "../../../Hooks/useFirebase";
 
 const LoginPage = () => {
-    const {loginInWithGoogle, success} = useFirebase();
+  const { loginWithEmailAndPassword, loginInWithGoogle, success } = useFirebase();
+  const [email, setEmail] = useState([]);
+  const [password, setPassword] = useState([]);
+
+  const handleEmail = (event) =>{
+    setEmail(event.target.value)
+  }
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleForm = (event) =>{
+    event.preventDefault();
+    loginWithEmailAndPassword(email, password);
+  }
   return (
     <div>
       <div
@@ -20,38 +34,47 @@ const LoginPage = () => {
             </h3>
           </div>
 
-          {/* <!--Body--> */}
-          <div className='md-form pb-3'>
-            <input
-              type='text'
-              id='Form-email1'
-              className='form-control border-top-0 border-start-0 border-end-0 text-center'
-              placeholder='Your Email'
-            />
-          </div>
-
-          <div className='md-form pb-3'>
-            <input
-              type='password'
-              id='Form-pass1'
-              className='form-control border-top-0 border-start-0 border-end-0 text-center'
-              placeholder='Your Password'
-            />
-            <p className='font-small blue-text d-flex justify-content-end pt-3 fw-bold fs-6'>
-              Forgot{" "}
-              <Link to='#' className='blue-text mb-1 ms-2 text-decoration-none'>
-                Password?
-              </Link>
-            </p>
-          </div>
-
-          <div className='text-center mb-3'>
-            <div class='d-grid col-8 mx-auto'>
-              <button class='btn btn-primary rounded-pill ' type='button'>
-                Sign In
-              </button>
+          <form onSubmit={handleForm}>
+            {/* <!--Body--> */}
+            <div className='md-form pb-3'>
+              <input
+                type='text'
+                name='email'
+                className='form-control border-top-0 border-start-0 border-end-0 text-center'
+                placeholder='Your Email'
+                required
+                onBlur={handleEmail}
+              />
             </div>
-          </div>
+
+            <div className='md-form pb-3'>
+              <input
+                type='password'
+                name='password'
+                className='form-control border-top-0 border-start-0 border-end-0 text-center'
+                placeholder='Your Password'
+                required
+                onBlur={handlePassword}
+              />
+              <p className='font-small blue-text d-flex justify-content-end pt-3 fw-bold fs-6'>
+                Forgot{" "}
+                <Link
+                  to='#'
+                  className='blue-text mb-1 ms-2 text-decoration-none'
+                >
+                  Password?
+                </Link>
+              </p>
+            </div>
+
+            <div className='text-center mb-3'>
+              <div class='d-grid col-8 mx-auto'>
+                <button class='btn btn-primary rounded-pill ' type='submit'>
+                  Sign In
+                </button>
+              </div>
+            </div>
+          </form>
           <p className='font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2'>
             {" "}
             or Sign in with:
