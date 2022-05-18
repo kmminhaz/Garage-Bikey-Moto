@@ -20,7 +20,7 @@ function App() {
         <Route path='login' element={<LoginPage />}></Route>
         <Route path='register' element={<Register />}></Route>
         <Route
-          path='inventory'
+          path='inventory/:id'
           element={
             <RequiredAuth>
               <Inventory />

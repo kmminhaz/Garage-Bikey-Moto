@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Motorcycle Engine",
+    "img": "https://i.ibb.co/bb0Zhgh/engine.jpg",
+    "supplier_name": "Md. Fokrul Alam",
+    "description": "This mirrors a specially designed mirror for looking back vehicles or stuffs without turning their head backward while riding motorcycle. Usually its attached at the handle of the motorcycle.",
+    "price": "595",
+    "quantity": 43,
+    "sold_out": "No"
+  },
+  {
+    "name": "Motor For Electric Bike",
+    "img": "https://i.ibb.co/zVVPQ15/motor-for-electric-bike.png",
+    "supplier_name": "KitsGuru",
+    "description": "MY1016 24V 250W electric bicycle motor,E-bike motor,bicycle parts. 24 volt 250W output ,electric scooter and bike motor. Comes with an 11-tooth, #25 chain sprocket as well as a 4-bolt mounting bracket on the base. As this is DC motor it is capable of rotation in either the clockwise or counter clockwise direction by just reversing the battery polarity to the motor and can be speed controlled. If you want to speed control these, please take a look at our available speed controllers",
+    "price": "3360",
+    "quantity": 112,
+    "sold_out": "No"
+  },
+  {
+    "name": "Hero Bike Piston",
+    "img": "https://i.ibb.co/HrYVr43/motorcycle-piston.jpg",
+    "supplier_name": "Sai Krupa",
+    "description": "Our company holds vast experience in this domain and is involved in offering Hero Bike Piston. Here this piston is only can be used for hero bike and not for any other bike.",
+    "price": "100",
+    "quantity": 171,
+    "sold_out": "No"
+  },
+  {
+    "name": "Helmet (Matte Black)",
+    "img": "https://i.ibb.co/nkLPgCj/Halmet.png",
+    "supplier_name": "Shoei",
+    "description": "Shoei GT Size. Its Large sized, Color is MATTE BLACK, Recommended Uses For Product is Motorcycling, Vehicle Service Type Adventure Tourer, Cruiser/Touring, Street Bike.",
+    "price": "350",
+    "quantity": 95,
+    "sold_out": "No"
+  },
+  {
+    "name": "Motorcycle Engine Kill Switch",
+    "img": "https://i.ibb.co/C8fHk1n/kill-switch-on-off-engine.jpg",
+    "supplier_name": "S.D. Electronics",
+    "description": "Can be used in motorcycles for operating any type of on-off operation Like engine, headlight etc. People basically use such kind of switch when there are no by default switch for any type of operation that may need. Bikers install it in bike customizely",
+    "price": "45",
+    "quantity": 63,
+    "sold_out": "No"
+  },
+  {
+    "name": "Grip Side Mirror for Motorcycle",
+    "img": "https://i.ibb.co/WfsCR2R/bike-mirror.png",
+    "supplier_name": "Md. Fokrul Alam",
+    "description": "This mirrors a specially designed mirror for looking back vehicles or stuffs without turning their head backward while riding motorcycle. Usually its attached at the handle of the motorcycle.",
+    "price": "595",
+    "quantity": 43,
+    "sold_out": "No"
+  },
+  {
+    "name": "Tire Gurd - Black",
+    "img": "https://i.ibb.co/YD3KvgC/tire-gurd.png",
+    "supplier_name": "WIZARD SHOP",
+    "description": "Tire Gurd is used for protecting the dirts to come up of the sit and make all the things dirt.",
+    "price": "1050",
+    "quantity": 91,
+    "sold_out": "No"
+  },
+  {
+    "name": "Stainless steel silencer cover",
+    "img": "https://i.ibb.co/kcDqXHK/silencer-cover-apache-golden.jpg",
+    "supplier_name": "WIZARD SHOP",
+    "description": "It's a silencer cover its a golden color one with written Apache 4V in it",
+    "price": "1050",
+    "quantity": 79,
+    "sold_out": "No"
+  },
+  {
+    "name": "Gear Shift Lever",
+    "img": "https://i.ibb.co/CJvgMQx/gear-shift-lever.png",
+    "supplier_name": "Potic",
+    "description": "This shifter lever is made of quality stainless steel material, high strength, anti-deformation, durable. Easy to install and remove. Lightweight and portable for carrying and use. A perfect replacement for your old or damaged one. Fit for Honda CMX250 Rebel. Stable performance, high reliability.",
+    "price": "1255",
+    "quantity": 55,
+    "sold_out": "No"
+  },
+  {
+    "name": "Handel gutly",
+    "img": "https://i.ibb.co/3mNgzSg/gutli.png",
+    "supplier_name": "Rahmatullah & Sons",
+    "description": "Handel gutly for all motorcycle (Made in china)",
+    "price": "350",
+    "quantity": 17,
+    "sold_out": "No"
+  }
+]

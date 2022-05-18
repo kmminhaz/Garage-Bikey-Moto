@@ -1,36 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import image from "../../../images/carousel/image5.jpg";
+import { Link, useNavigate } from "react-router-dom";
 
 const InventoryItems = () => {
+  const [inventories, setInventory] = useState([]);
+  useEffect(() => {
+    fetch("https://dry-depths-45686.herokuapp.com/inventory")
+      .then((res) => res.json())
+      .then((data) => setInventory(data));
+  }, []);
+
+  let items = inventories.slice(0, 6);
+
+  const navigate = useNavigate();
+
+  const navigateToServiceDetail = (id) => {
+    navigate(`/inventory/${id}`);
+  };
   return (
     <div>
       <h2 className='py-4 fw-bold'>Inventories</h2>
       <Container>
         <Row xs={1} md={3} className='g-4'>
-          {Array.from({ length: 6 }).map((_, idx) => (
+          {items.map((inventory) => (
             <Col>
               <Card>
-                <Card.Img variant='top' src={image} height={200} />
+                <Card.Img variant='top' src={inventory.img} height={200} />
                 <Card.Body>
                   <Card.Title className='fw-bold fs-3 pb-3'>
-                    Spare parts
+                    {inventory.name}
                   </Card.Title>
                   <Card.Text>
+                    <h5 className="text-start ps-4">
+                      Supplier Name: <strong>{inventory.supplier_name}</strong>{" "}
+                    </h5>
                     <div className='d-flex justify-content-between px-4'>
                       <h5>
-                        Price: <strong>$300</strong>{" "}
+                        Price: <strong>{inventory.price}</strong>{" "}
                       </h5>
                       <h5>
-                        Quantity: <strong>94</strong>{" "}
+                        Quantity: <strong>{inventory.quantity}</strong>{" "}
                       </h5>
                     </div>
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
+                    {inventory.description.slice(0, 200)}
                     <br /> <br />
-                    <Button as={Link} to='/inventory' variant='dark'>
+                    <Button
+                      onClick={() => {
+                        navigateToServiceDetail(inventory._id);
+                      }}
+                      variant='dark'
+                    >
                       Manage
                     </Button>
                   </Card.Text>
