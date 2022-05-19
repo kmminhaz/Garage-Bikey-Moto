@@ -7,35 +7,53 @@ const Inventory = () => {
   const [inventory, setInventory] = useState([]);
 
   useEffect(() => {
-    fetch("")
+    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setInventory(data));
   }, []);
+
+  const deliverProduct = () => {
+    const Quantity = inventory.quantity;
+    const updateQuantity = Quantity - 1;
+    const updatedQuantity = { updateQuantity };
+
+    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedQuantity),
+    })
+      .then((res) => res.json())
+      .then((quantityData) => console.log("success", quantityData));
+      updateQuantity.reset();
+  };
+
   return (
     <div>
       <Container>
-        <h2>Inventory Id : {id}</h2>
-        <div>
-          <img src='' alt='' className='' height={300} width={300} />
-          <h3>Product Name</h3>
-          <h4>Supplier Name</h4>
-          <h5>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-            similique amet, cum voluptates sed architecto veniam. Pariatur
-            excepturi qui voluptatum assumenda a odio reiciendis, fugit fuga
-            dolore voluptatem iure odit eum porro facere provident? Laudantium
-            dolor beatae officiis soluta laboriosam ab fugiat? Nisi non eum
-            magni optio corporis architecto asperiores temporibus accusantium,
-            incidunt dicta animi error expedita minima ad. Non sit, illum eum
-            cum repellendus perferendis laudantium. Adipisci a fugit unde
-            reprehenderit debitis reiciendis magni quis totam cupiditate,
-          </h5>
-          <div>
-              <h6>Price</h6>
-              <h6>Quantity</h6>
+        <div className='d-grid col-6 mx-auto'>
+          <h3 className='pt-4 text-start'>Product ID : {id}</h3>
+          <img
+            src={inventory.img}
+            alt=''
+            className='mx-auto py-2'
+            height={300}
+            width={300}
+          />
+          <h3>{inventory.name}</h3>
+          <h4>{inventory.supplier_name}</h4>
+          <h5 className='text-start'>{inventory.description}</h5>
+          <div className='d-flex justify-content-between'>
+            <h4>
+              Price : <strong>{inventory.price}$</strong>
+            </h4>
+            <h4>
+              Quantity : <strong>{inventory.quantity}</strong>
+            </h4>
           </div>
-          <h4>Status</h4>
-          <Button>Delivered</Button>
+          <h4 className='py-3'>Sold Out : {inventory.sold_out}</h4>
+          <Button onClick={deliverProduct}>Delivered</Button>
         </div>
       </Container>
     </div>
