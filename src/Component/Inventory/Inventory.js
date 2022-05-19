@@ -12,23 +12,6 @@ const Inventory = () => {
       .then((data) => setInventory(data));
   }, []);
 
-  const deliverProduct = () => {
-    const Quantity = inventory.quantity;
-    const updateQuantity = Quantity - 1;
-    const updatedQuantity = { updateQuantity };
-
-    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedQuantity),
-    })
-      .then((res) => res.json())
-      .then((quantityData) => console.log("success", quantityData));
-      updateQuantity.reset();
-  };
-
   return (
     <div>
       <Container>
@@ -53,7 +36,6 @@ const Inventory = () => {
             </h4>
           </div>
           <h4 className='py-3'>Sold Out : {inventory.sold_out}</h4>
-          <Button onClick={deliverProduct}>Delivered</Button>
         </div>
       </Container>
     </div>
