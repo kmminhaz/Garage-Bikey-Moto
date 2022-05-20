@@ -17,16 +17,16 @@ const Inventory = () => {
   const deliveryInventory = () => {
     quantity = quantity - 1;
 
-    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
-      method: "",
+    fetch(`http://localhost:5000/inventory/${id}`, {
+      method: "PUT",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(quantity),
+      body: JSON.stringify({ quantity }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log("success", data);
+      .then((result) => {
+        console.log("success", result);
         alert("quantity updated successfully");
       });
   };
