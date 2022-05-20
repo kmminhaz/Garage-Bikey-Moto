@@ -14,7 +14,7 @@ const InventoryItems = () => {
 
   const navigate = useNavigate();
 
-  const navigateToServiceDetail = (id) => {
+  const navigateToInventoryDetail = (id) => {
     navigate(`/inventory/${id}`);
   };
   return (
@@ -23,7 +23,7 @@ const InventoryItems = () => {
       <Container>
         <Row xs={1} md={3} className='g-4'>
           {items.map((inventory) => (
-            <Col>
+            <Col key={inventory._id}>
               <Card>
                 <Card.Img variant='top' src={inventory.img} height={200} />
                 <Card.Body>
@@ -31,22 +31,23 @@ const InventoryItems = () => {
                     {inventory.name}
                   </Card.Title>
                   <Card.Text>
-                    <h5 className="text-start ps-4">
-                      Supplier Name: <strong>{inventory.supplier_name}</strong>{" "}
+                    <h5 className='text-start ps-4'>
+                      Supplier Name:{" "}
+                      <strong> {inventory.supplier_name} </strong>{" "}
                     </h5>
                     <div className='d-flex justify-content-between px-4'>
                       <h5>
-                        Price: <strong>{inventory.price}</strong>{" "}
+                        Price: <strong> {inventory.price} </strong>{" "}
                       </h5>
                       <h5>
-                        Quantity: <strong>{inventory.quantity}</strong>{" "}
+                        Quantity: <strong> {inventory.quantity} </strong>{" "}
                       </h5>
                     </div>
-                    {inventory.description.slice(0, 200)}
+                    <p>{inventory.description.slice(0, 200)}</p>
                     <br /> <br />
                     <Button
                       onClick={() => {
-                        navigateToServiceDetail(inventory._id);
+                        navigateToInventoryDetail(inventory._id);
                       }}
                       variant='dark'
                     >

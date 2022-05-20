@@ -6,11 +6,30 @@ const Inventory = () => {
   const { id } = useParams();
   const [inventory, setInventory] = useState([]);
 
+  let quantity = inventory.quantity;
+
   useEffect(() => {
     fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`)
       .then((res) => res.json())
       .then((data) => setInventory(data));
   }, []);
+
+  const deliveryInventory = () => {
+    quantity = quantity - 1;
+
+    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
+      method: "",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(quantity),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("success", data);
+        alert("quantity updated successfully");
+      });
+  };
 
   return (
     <div>
@@ -32,10 +51,11 @@ const Inventory = () => {
               Price : <strong>{inventory.price}$</strong>
             </h4>
             <h4>
-              Quantity : <strong>{inventory.quantity}</strong>
+              Quantity : <strong>{quantity}</strong>
             </h4>
           </div>
           <h4 className='py-3'>Sold Out : {inventory.sold_out}</h4>
+          <Button onClick={deliveryInventory}> Delivery </Button>
         </div>
       </Container>
     </div>
