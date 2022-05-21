@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useFirebase from "../../../Hooks/useFirebase";
 
 const LoginPage = () => {
-  const { user, loginWithEmailAndPassword, loginInWithGoogle, success } = useFirebase();
+  const { user, loginWithEmailAndPassword, loginInWithGoogle, success, error } = useFirebase();
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
   const location = useLocation();
@@ -38,6 +38,8 @@ const LoginPage = () => {
             <h3 className='dark-grey-text mb-5'>
               <strong>Sign in</strong>
             </h3>
+            <p className='text-success fw-bold shadow'>{success}</p>
+            <p className='text-danger fw-bold shadow'>{error}</p>
           </div>
 
           <form onSubmit={handleForm}>
@@ -95,7 +97,6 @@ const LoginPage = () => {
             >
               Google
             </button>
-            <p className='py-3 text-success fw-bold'>{success}</p>
           </div>
         </div>
 
