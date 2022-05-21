@@ -59,6 +59,12 @@ const InventoryItems = () => {
             </Col>
           ))}
         </Row>
+        <div className='d-flex justify-content-center pt-5'>
+          <Link to='/manageInventory' className="btn btn-dark">
+            {" "}
+            Manage Inventories{" "}
+          </Link>
+        </div>
       </Container>
     </div>
   );
