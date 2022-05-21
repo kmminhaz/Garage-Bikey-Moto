@@ -11,6 +11,7 @@ import RequiredAuth from "./Component/Require/RequiredAuth";
 import Blog from "./Component/Blog/Blog";
 import NotFound from "./Component/NotFound/NotFound";
 import ManageInventory from "./Component/ManageInventory/ManageInventory";
+import AddNewInventory from "./Component/Home/AddNewInventory/AddNewInventory";
 
 function App() {
   return (
@@ -30,7 +31,22 @@ function App() {
         ></Route>
         <Route path='blog' element={<Blog />}></Route>
         <Route path='*' element={<NotFound />}></Route>
-        <Route path='manageInventory' element={<ManageInventory />}></Route>
+        <Route
+          path='manageInventory'
+          element={
+            <RequiredAuth>
+              <ManageInventory />
+            </RequiredAuth>
+          }
+        ></Route>
+        <Route
+          path='addNewInventory'
+          element={
+            <RequiredAuth>
+              <AddNewInventory />
+            </RequiredAuth>
+          }
+        ></Route>
       </Routes>
       <br /> <br />
       <Footer></Footer>

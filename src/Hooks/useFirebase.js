@@ -26,11 +26,9 @@ const useFirebase = () => {
   const loginInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        sendEmailVerification(auth.currentUser).then(() => {
-          setSuccess(
-            `A varification Email has been sent to ${user.reloadUserInfo.email}`
-          );
-        });
+        setSuccess(
+          `A varification Email has been sent to ${user.reloadUserInfo.email}`
+        );
       })
       .catch((error) => {
         setError("Email Or Password is Wrong");

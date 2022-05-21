@@ -36,7 +36,13 @@ const ManageInventory = () => {
   return (
     <div>
       <Container>
-        <Table striped bordered hover size='sm' className='mt-5'>
+        <div className='d-flex justify-content-end'>
+          <Link to="/addNewInventory" className='btn btn-dark mt-4'>
+            Add New Inventory
+          </Link>
+        </div>
+        <h3 className="text-center fw-bold mt-4 text-decoration-underline">All INVENTORIES</h3>
+        <Table striped bordered hover size='sm' className='mt-3'>
           <thead>
             <tr>
               <th>#</th>
@@ -51,7 +57,6 @@ const ManageInventory = () => {
           </thead>
           <tbody>
             {inventories.map((inventory) => (
-              // {setItemNo(itemNo + 1)}
               <tr key={inventory._id}>
                 <td>{(itemNo = itemNo + 1)}</td>
                 <td>{inventory.name}</td>
