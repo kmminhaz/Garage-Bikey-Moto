@@ -11,7 +11,8 @@ import RequiredAuth from "./Component/Require/RequiredAuth";
 import Blog from "./Component/Blog/Blog";
 import NotFound from "./Component/NotFound/NotFound";
 import ManageInventory from "./Component/ManageInventory/ManageInventory";
-import AddNewInventory from "./Component/Home/AddNewInventory/AddNewInventory";
+import AddNewInventory from "./Component/AddNewInventory/AddNewInventory";
+import MyInventory from "./Component/MyInventory/MyInventory";
 
 function App() {
   return (
@@ -44,6 +45,14 @@ function App() {
           element={
             <RequiredAuth>
               <AddNewInventory />
+            </RequiredAuth>
+          }
+        ></Route>
+        <Route
+          path='myInventories'
+          element={
+            <RequiredAuth>
+              <MyInventory />
             </RequiredAuth>
           }
         ></Route>

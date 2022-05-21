@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import useFirebase from "../../Hooks/useFirebase";
 
 const AddNewInventory = () => {
   const { register, handleSubmit } = useForm();
+  const {user} = useFirebase();
+  // const [email, setEmail] = useState('');
+  const userEmail = user.email;
+  console.log(userEmail);
+
   const onSubmit = (data) => {
     fetch("http://localhost:5000/inventory", {
       method: "POST",
@@ -26,6 +32,16 @@ const AddNewInventory = () => {
         <div className='d-grid col-lg-8 col-sm-12 mx-auto'>
           <p className='text-start mb-1 mt-3 fw-bold'> Name</p>
           <input {...register("name", { required: true })} />
+        </div>
+        <div className='d-grid col-lg-8 col-sm-12 mx-auto'>
+          <p className='text-start mb-1 mt-2 fw-bold'> The User Email </p>{" "}
+          <input
+            value={userEmail}
+            readOnly
+            className='bg-light'
+            type='email'
+            {...register("email", { required: true })}
+          />
         </div>
         <div className='d-grid col-lg-8 col-sm-12 mx-auto'>
           <p className='text-start mb-1 mt-2 fw-bold'> Supplier Name</p>
@@ -52,6 +68,7 @@ const AddNewInventory = () => {
           <input
             value='No'
             readOnly
+            className='bg-light'
             {...register("sold_out", { required: true })}
           />
         </div>

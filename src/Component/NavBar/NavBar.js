@@ -33,18 +33,18 @@ const NavBar = () => {
             {user ? (
               <>
                 <Nav.Item>
-                  <Nav.Link as={Link} to='/'>
-                    Manage Items
+                  <Nav.Link as={Link} to='/manageInventory'>
+                    Manage Inventory
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to='/'>
-                    Add Item
+                  <Nav.Link as={Link} to='/addNewInventory'>
+                    Add Inventory
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to='/'>
-                    My items
+                  <Nav.Link as={Link} to='/myInventories'>
+                    My Inventories
                   </Nav.Link>
                 </Nav.Item>
               </>

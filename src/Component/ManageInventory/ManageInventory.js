@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 const ManageInventory = () => {
   const [inventories, setInventory] = useState([]);
-  // const [itemNo, setItemNo] = useState(1);
-  // setItemNo(2);
 
   let itemNo = 0;
 
@@ -36,8 +34,8 @@ const ManageInventory = () => {
   return (
     <div>
       <Container>
-        <div className='d-flex justify-content-end'>
-          <Link to="/addNewInventory" className='btn btn-dark mt-4'>
+        <div className='d-flex justify-content-start'>
+          <Link to="/addNewInventory" className='btn btn-dark mt-4 ms-5'>
             Add New Inventory
           </Link>
         </div>
