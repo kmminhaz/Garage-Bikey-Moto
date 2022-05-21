@@ -14,3 +14,4 @@ This is an web page of warehouse containing the inventories of bike. Inventories
 4. Authentication with "social" and "email & password" by using "Firebase"
 5. Checking email verification by "Firebase".
 6. Realtime data access ability my "MongoDB".
+7. A responsive website.

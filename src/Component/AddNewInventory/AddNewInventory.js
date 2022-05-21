@@ -5,8 +5,7 @@ import useFirebase from "../../Hooks/useFirebase";
 
 const AddNewInventory = () => {
   const { register, handleSubmit } = useForm();
-  const {user} = useFirebase();
-  // const [email, setEmail] = useState('');
+  const { user } = useFirebase();
   const userEmail = user.email;
   console.log(userEmail);
 
