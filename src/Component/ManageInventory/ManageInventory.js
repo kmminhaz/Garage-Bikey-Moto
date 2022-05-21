@@ -15,14 +15,28 @@ const ManageInventory = () => {
       .then((data) => setInventory(data));
   }, []);
 
-  const deleteItem = () => {
-      
-  }
+  const deleteItem = (id) => {
+    const proceed = window.confirm(
+      "Are you sure your want to delete this inventory"
+    );
+    if (proceed) {
+      fetch(`http://localhost:5000/inventory/${id}`, {
+        method: 'DELETE'
+      })
+        .then((resDelete) => resDelete.json())
+        .then((dataDelete) => {
+            if (dataDelete.acknowledged === true) {
+                const remaining = inventories.filter(item => item._id !== id);
+                setInventory(remaining);
+            }
+        });
+    }
+  };
 
   return (
     <div>
       <Container>
-        <Table striped bordered hover size='sm' className="mt-5">
+        <Table striped bordered hover size='sm' className='mt-5'>
           <thead>
             <tr>
               <th>#</th>
@@ -38,18 +52,33 @@ const ManageInventory = () => {
           <tbody>
             {inventories.map((inventory) => (
               // {setItemNo(itemNo + 1)}
-              <tr key={inventory.id}>
+              <tr key={inventory._id}>
                 <td>{(itemNo = itemNo + 1)}</td>
                 <td>{inventory.name}</td>
                 <td>
-                    <img src={inventory.img} alt="" srcset="" height={75} width={100} />
+                  <img
+                    src={inventory.img}
+                    alt=''
+                    srcset=''
+                    height={75}
+                    width={100}
+                  />
                 </td>
                 <td>{inventory.supplier_name}</td>
                 <td>{inventory.price}</td>
                 <td>{inventory.quantity}</td>
                 <td>{inventory.sold_out}</td>
                 <td>
-                  <Button variant='danger' className="mx-2" onClick={deleteItem}> Delete </Button>
+                  <Button
+                    variant='danger'
+                    className='mx-2'
+                    onClick={() => {
+                      deleteItem(inventory._id);
+                    }}
+                  >
+                    {" "}
+                    Delete{" "}
+                  </Button>
                 </td>
               </tr>
             ))}
