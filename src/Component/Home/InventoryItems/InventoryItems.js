@@ -1,9 +1,19 @@
+import { getAuth } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import app from "../../../firebase.init";
+import Loading from "../../Loading/Loading";
 
 const InventoryItems = () => {
   const [inventories, setInventory] = useState([]);
+  const [loading] = useAuthState(getAuth(app))
+
+  if(loading){
+    <Loading/>
+  }
+
   useEffect(() => {
     fetch("https://dry-depths-45686.herokuapp.com/inventory")
       .then((res) => res.json())

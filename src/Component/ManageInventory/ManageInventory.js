@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Row, Table } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Button, Container, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 const ManageInventory = () => {
   const [inventories, setInventory] = useState([]);

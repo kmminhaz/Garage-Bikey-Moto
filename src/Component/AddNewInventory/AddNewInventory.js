@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
 import useFirebase from "../../Hooks/useFirebase";
 
 const AddNewInventory = () => {
@@ -18,7 +18,6 @@ const AddNewInventory = () => {
       quantity: data.quantity,
       sold_out: data.sold_out
     }
-    console.log(inventory);
     fetch("http://localhost:5000/inventory", {
       method: "POST",
       headers: {
@@ -27,11 +26,16 @@ const AddNewInventory = () => {
       body: JSON.stringify(inventory),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        if(result.acknowledged === true){
+          toast("A New Inventory has been added");
+        }
+      });
   };
 
   return (
     <Container>
+      <ToastContainer></ToastContainer>;
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='d-grid col-lg-6 col-sm-12 mx-auto shadow rounded-3 mt-4'
@@ -43,7 +47,9 @@ const AddNewInventory = () => {
         </div>
         <div className='d-grid col-lg-8 col-sm-12 mx-auto'>
           <p className='text-start mb-1 mt-2 fw-bold'> Your Email </p>{" "}
-          <h6 className="p-2 fw-bold bg-light text-start border" >{user?.email}</h6>
+          <h6 className='p-2 fw-bold bg-light text-start border'>
+            {user?.email}
+          </h6>
         </div>
         <div className='d-grid col-lg-8 col-sm-12 mx-auto'>
           <p className='text-start mb-1 mt-2 fw-bold'> Supplier Name</p>

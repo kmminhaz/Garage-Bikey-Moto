@@ -1,13 +1,22 @@
+import { getAuth } from "firebase/auth";
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import app from "../../../firebase.init";
 import useFirebase from "../../../Hooks/useFirebase";
+import Loading from "../../Loading/Loading";
 
 const Register = () => {
   const { loginInWithGoogle, success, createAccountWithEmailAndPassword } =
     useFirebase();
+  const [user, loading] = useAuthState(getAuth(app))
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
+
+  if(loading){
+    <Loading></Loading>
+  }
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -91,20 +100,6 @@ const Register = () => {
               placeholder='Repeat Password'
             />
           </div>
-
-          {/* Checkbox */}
-          {/* <div className='form-check d-flex justify-content-center mb-4'>
-              <input
-                className='form-check-input me-2'
-                type='checkbox'
-                value=''
-                checked
-                aria-describedby='registerCheckHelpText'
-              />
-              <label className='form-check-label' for='registerCheck'>
-                I have read and agree to the terms
-              </label>
-            </div> */}
 
           {/* Submit button */}
           <button type='submit' className='btn btn-dark btn-block mb-3'>
