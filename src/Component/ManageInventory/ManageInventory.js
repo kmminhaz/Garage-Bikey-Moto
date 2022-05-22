@@ -7,6 +7,9 @@ const ManageInventory = () => {
   const [inventories, setInventory] = useState([]);
 
   let itemNo = 0;
+  if(!inventories){
+      <Loading></Loading>
+  }
 
   useEffect(() => {
     fetch("https://dry-depths-45686.herokuapp.com/inventory")

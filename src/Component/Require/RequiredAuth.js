@@ -41,10 +41,7 @@ const RequiredAuth = ({ children }) => {
         <ToastContainer></ToastContainer>
       </div>
     );
-  } else {
-    // console.log(loginType);
   }
-  // console.log(user?.providerData[0]);
   return children;
 };
 

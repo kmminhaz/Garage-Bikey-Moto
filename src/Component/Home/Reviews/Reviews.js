@@ -21,13 +21,13 @@ const Reviews = () => {
             <div className='pt-4'>
               <h5>
                 <strong>Mr. Fokre Korim,</strong>{" "}
-                <span disabled>Director of Ramsey & Co.</span>
+                <span disabled>Director of Honda.</span>
               </h5>
               <p className='w-50 mx-auto py-3'>
-                Quisque volutpat mattis eros. Nullam malesuada erat ut ki diaml
-                ka dhuddu pochu turpis. Suspendisse urna nibh, viverra non,
-                semper suscipit, posuere a, pede. Donec nec justo eget felis
-                facilisis fermentum. Aliquam porttitor mauris sit amet orci.
+                Nice place to store necessery items and supply. It has been 3
+                years that i was supplying into this warehouse. It has never
+                happend that the payment will be due. I am happy to be a part of
+                business chain of grage bikey moto.
               </p>
             </div>
           </div>
@@ -47,10 +47,9 @@ const Reviews = () => {
                 <span disabled>Director of Ramsey & Co.</span>
               </h5>
               <p className='w-50 mx-auto py-3'>
-                Quisque volutpat mattis eros. Nullam malesuada erat ut ki diaml
-                ka dhuddu pochu turpis. Suspendisse urna nibh, viverra non,
-                semper suscipit, posuere a, pede. Donec nec justo eget felis
-                facilisis fermentum. Aliquam porttitor mauris sit amet orci.
+                This is a well known and well decorated warehouse. Here every
+                product's are organized and kept up to date. items that are
+                shortage around the world can easily be found here.
               </p>
             </div>
           </div>
@@ -66,14 +65,15 @@ const Reviews = () => {
             </div>
             <div className='pt-4'>
               <h5>
-                <strong>Mr. Fokre Korim,</strong>{" "}
-                <span disabled>Director of Ramsey & Co.</span>
+                <strong>K. M. Minhaz Uddin</strong>{" "}
+                <span disabled>Chairman, Garage Bikey Moto</span>
               </h5>
               <p className='w-50 mx-auto py-3'>
-                Quisque volutpat mattis eros. Nullam malesuada erat ut ki diaml
-                ka dhuddu pochu turpis. Suspendisse urna nibh, viverra non,
-                semper suscipit, posuere a, pede. Donec nec justo eget felis
-                facilisis fermentum. Aliquam porttitor mauris sit amet orci.
+                The items are kept so organized and simple manner that i feel
+                proud that i work here and it gives me a great pleasur. We can
+                assure you that or to any commpany that keeping inventories in
+                this ware house and getting any product from this is going to be
+                the total fresh and new.
               </p>
             </div>
           </div>

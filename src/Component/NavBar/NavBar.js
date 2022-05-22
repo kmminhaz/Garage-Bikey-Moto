@@ -10,8 +10,8 @@ const NavBar = () => {
     <div>
       <Navbar bg='light' expand='lg'>
         <Container>
-          <Navbar.Brand as={Link} to='/'>
-            Garage Bikey
+          <Navbar.Brand as={Link} to='/' className="fw-bold">
+            Garage Bikey Moto
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
