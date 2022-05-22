@@ -15,3 +15,4 @@ This is an web page of warehouse containing the inventories of bike. Inventories
 5. Checking email verification by "Firebase".
 6. Realtime data access ability my "MongoDB".
 7. A responsive website.
+8. Used JWT (JSON Web Token) for user verification. 
