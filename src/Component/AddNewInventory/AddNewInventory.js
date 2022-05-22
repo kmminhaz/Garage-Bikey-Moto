@@ -6,16 +6,25 @@ import useFirebase from "../../Hooks/useFirebase";
 const AddNewInventory = () => {
   const { register, handleSubmit } = useForm();
   const { user } = useFirebase();
-  const userEmail = user.email;
-  console.log(userEmail);
 
   const onSubmit = (data) => {
+    const inventory = {
+      name: data.name,
+      email: user.email,
+      supplier_name: data.supplier_name,
+      img: data.img,
+      description: data.description,
+      price: data.price,
+      quantity: data.quantity,
+      sold_out: data.sold_out
+    }
+    console.log(inventory);
     fetch("http://localhost:5000/inventory", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(inventory),
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
@@ -34,13 +43,7 @@ const AddNewInventory = () => {
         </div>
         <div className='d-grid col-lg-8 col-sm-12 mx-auto'>
           <p className='text-start mb-1 mt-2 fw-bold'> The User Email </p>{" "}
-          <input
-            value={userEmail}
-            readOnly
-            className='bg-light'
-            type='email'
-            {...register("email", { required: true })}
-          />
+          <h6 className="p-2 fw-bold bg-light text-start border" >{user.email}</h6>
         </div>
         <div className='d-grid col-lg-8 col-sm-12 mx-auto'>
           <p className='text-start mb-1 mt-2 fw-bold'> Supplier Name</p>

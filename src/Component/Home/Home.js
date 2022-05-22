@@ -5,6 +5,7 @@ import InventoryItems from './InventoryItems/InventoryItems';
 import Reviews from './Reviews/Reviews';
 
 const Home = () => {
+
     return (
       <div>
         <Banner></Banner>
