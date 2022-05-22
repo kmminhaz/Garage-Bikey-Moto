@@ -4,29 +4,43 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useFirebase from "../../../Hooks/useFirebase";
 
 const LoginPage = () => {
-  const { user, loginWithEmailAndPassword, loginInWithGoogle, success, error } = useFirebase();
+  const { user, loginWithEmailAndPassword, loginInWithGoogle, success, error } =
+    useFirebase();
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
 
-  let redirectFrom = location?.state?.from?.pathname || '/';
+  let redirectFrom = location?.state?.from?.pathname || "/";
 
-  if(user){
-    navigate(redirectFrom);
+  if (user) {
+    // navigate(redirectFrom);
   }
 
-  const handleEmail = (event) =>{
-    setEmail(event.target.value)
-  }
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
 
-  const handleForm = (event) =>{
+  const handleForm = async (event) => {
     event.preventDefault();
-    loginWithEmailAndPassword(email, password);
-  }
+    await loginWithEmailAndPassword(email, password);
+
+    await fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("accessToken", data.accessToken);
+        navigate(redirectFrom);
+      });
+  };
   return (
     <Container>
       <div className='d-grid col-lg-6 col-sm-12 mx-auto'>

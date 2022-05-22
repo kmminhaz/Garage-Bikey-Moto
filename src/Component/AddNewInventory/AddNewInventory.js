@@ -10,7 +10,7 @@ const AddNewInventory = () => {
   const onSubmit = (data) => {
     const inventory = {
       name: data.name,
-      email: user.email,
+      email: user?.email,
       supplier_name: data.supplier_name,
       img: data.img,
       description: data.description,
@@ -42,8 +42,8 @@ const AddNewInventory = () => {
           <input {...register("name", { required: true })} />
         </div>
         <div className='d-grid col-lg-8 col-sm-12 mx-auto'>
-          <p className='text-start mb-1 mt-2 fw-bold'> The User Email </p>{" "}
-          <h6 className="p-2 fw-bold bg-light text-start border" >{user.email}</h6>
+          <p className='text-start mb-1 mt-2 fw-bold'> Your Email </p>{" "}
+          <h6 className="p-2 fw-bold bg-light text-start border" >{user?.email}</h6>
         </div>
         <div className='d-grid col-lg-8 col-sm-12 mx-auto'>
           <p className='text-start mb-1 mt-2 fw-bold'> Supplier Name</p>
