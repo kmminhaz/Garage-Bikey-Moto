@@ -40,7 +40,7 @@ const ManageInventory = () => {
           </Link>
         </div>
         <h3 className="text-center fw-bold mt-4 text-decoration-underline">All INVENTORIES</h3>
-        <Table striped bordered hover size='sm' className='mt-3'>
+        <Table bordered hover size='sm' className='mt-3'>
           <thead>
             <tr>
               <th>#</th>
@@ -62,7 +62,6 @@ const ManageInventory = () => {
                   <img
                     src={inventory.img}
                     alt=''
-                    srcset=''
                     height={75}
                     width={100}
                   />

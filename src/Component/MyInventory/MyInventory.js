@@ -5,15 +5,20 @@ import useFirebase from "../../Hooks/useFirebase";
 const MyInventory = () => {
   const [inventories, setInventory] = useState([]);
   const { user } = useFirebase();
-  const myEmail = user.email;
 
   let itemNo = 0;
 
-  useEffect(() => {
-    fetch("https://dry-depths-45686.herokuapp.com/inventory")
-      .then((res) => res.json())
-      .then((data) => setInventory(data));
-  }, []);
+  useEffect( () => {
+      if(user.email){
+          fetch(`http://localhost:5000/myInventory?email=${user.email}`, {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => setInventory(data));
+      }
+  }, [user]);
 
   const deleteItem = (id) => {
     const proceed = window.confirm(
@@ -39,7 +44,7 @@ const MyInventory = () => {
         <h3 className='text-center fw-bold mt-4 text-decoration-underline'>
           My INVENTORIES
         </h3>
-        <Table striped bordered hover size='sm' className='mt-3'>
+        <Table bordered hover size='sm' className='mt-3'>
           <thead>
             <tr>
               <th>#</th>
@@ -53,9 +58,7 @@ const MyInventory = () => {
             </tr>
           </thead>
           <tbody>
-            {inventories
-              .filter((myInventory) => myInventory.email === myEmail)
-              .map((inventory) => (
+            {inventories.map((inventory) => (
                 <tr key={inventory._id}>
                   <td>{(itemNo = itemNo + 1)}</td>
                   <td>{inventory.name}</td>
