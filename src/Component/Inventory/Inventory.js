@@ -17,7 +17,7 @@ const Inventory = () => {
   const deliveryInventory = () => {
     quantity = quantity - 1;
 
-    fetch(`http://localhost:5000/inventory/${id}`, {
+    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ const Inventory = () => {
 
     console.log(quantity);
 
-    fetch(`http://localhost:5000/inventory/${id}`, {
+    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

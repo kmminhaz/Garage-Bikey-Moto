@@ -18,7 +18,7 @@ const AddNewInventory = () => {
       quantity: data.quantity,
       sold_out: data.sold_out
     }
-    fetch("http://localhost:5000/inventory", {
+    fetch("https://dry-depths-45686.herokuapp.com/inventory", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -27,7 +27,7 @@ const AddNewInventory = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        if(result.acknowledged === true){
+        if (result.acknowledged === true) {
           toast("A New Inventory has been added");
         }
       });
