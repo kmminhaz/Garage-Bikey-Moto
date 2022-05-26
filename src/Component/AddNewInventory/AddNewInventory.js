@@ -35,7 +35,7 @@ const AddNewInventory = () => {
 
   return (
     <Container>
-      <ToastContainer></ToastContainer>;
+      <ToastContainer></ToastContainer>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='d-grid col-lg-6 col-sm-12 mx-auto shadow rounded-3 mt-4'

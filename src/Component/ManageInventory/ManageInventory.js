@@ -22,15 +22,15 @@ const ManageInventory = () => {
       "Are you sure your want to delete this inventory"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/inventory/${id}`, {
-        method: 'DELETE'
+      fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
+        method: "DELETE",
       })
         .then((resDelete) => resDelete.json())
         .then((dataDelete) => {
-            if (dataDelete.acknowledged === true) {
-                const remaining = inventories.filter(item => item._id !== id);
-                setInventory(remaining);
-            }
+          if (dataDelete.acknowledged === true) {
+            const remaining = inventories.filter((item) => item._id !== id);
+            setInventory(remaining);
+          }
         });
     }
   };

@@ -10,11 +10,14 @@ const MyInventory = () => {
 
   useEffect( () => {
       if(user.email){
-          fetch(`http://localhost:5000/myInventory?email=${user.email}`, {
-            headers: {
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-          })
+          fetch(
+            `https://dry-depths-45686.herokuapp.com/myInventory?email=${user.email}`,
+            {
+              headers: {
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+            }
+          )
             .then((res) => res.json())
             .then((data) => setInventory(data));
       }
@@ -25,7 +28,7 @@ const MyInventory = () => {
       "Are you sure your want to delete this inventory"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/inventory/${id}`, {
+      fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
         method: "DELETE",
       })
         .then((resDelete) => resDelete.json())

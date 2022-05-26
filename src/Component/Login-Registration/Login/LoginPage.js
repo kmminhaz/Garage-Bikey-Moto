@@ -1,7 +1,10 @@
 import { getAuth } from "firebase/auth";
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import { useAuthState, useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useSendPasswordResetEmail,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import app from "../../../firebase.init";
@@ -16,13 +19,19 @@ const LoginPage = () => {
   const [password, setPassword] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
-  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(getAuth(app));
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
+    getAuth(app)
+  );
 
   if (loading || sending) {
     <Loading></Loading>;
   }
 
   let redirectFrom = location?.state?.from?.pathname || "/";
+
+  if(user){
+    navigate(redirectFrom);
+  }
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -35,25 +44,25 @@ const LoginPage = () => {
     event.preventDefault();
     await loginWithEmailAndPassword(email, password);
 
-    await fetch("http://localhost:5000/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        localStorage.setItem("accessToken", data.accessToken);
-        navigate(redirectFrom);
-        console.log(data);
-      });
+    // await fetch("https://dry-depths-45686.herokuapp.com/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({ email }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     localStorage.setItem("accessToken", data.accessToken);
+    //     navigate(redirectFrom);
+    //     console.log(data);
+    //   });
   };
 
   const resetPassword = async (event) => {
     handleEmail(event);
-    console.log(typeof(email));
-    if (typeof email === 'string' && email) {
+    console.log(typeof email);
+    if (typeof email === "string" && email) {
       await sendPasswordResetEmail(email);
       toast("An email for password reset sent");
     } else {
