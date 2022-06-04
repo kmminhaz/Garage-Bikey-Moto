@@ -4,7 +4,7 @@ This is an web page of warehouse containing the inventories of bike. Inventories
 
 ## The web site link
 
-(http://localhost:3000)
+(https://garage-zeromoto.web.app/)
 
 ### 5 Bullet points to be mention
 
