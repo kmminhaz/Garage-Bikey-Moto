@@ -6,7 +6,7 @@ This is an web page of warehouse containing the inventories of bike. Inventories
 
 (https://garage-zeromoto.web.app/)
 
-### 5 Bullet points to be mention
+### Bullet points to be mention
 
 1. View All the inventories from "MongoDB".
 2. Manage All the inventories by add, update & delete by NodeJs.
@@ -16,3 +16,6 @@ This is an web page of warehouse containing the inventories of bike. Inventories
 6. Realtime data access ability my "MongoDB".
 7. A responsive website.
 8. Used JWT (JSON Web Token) for user verification. 
+
+### Server Side Code :
+[https://github.com/kmminhaz/Garage-Bikey-Moto-Server-Side]
