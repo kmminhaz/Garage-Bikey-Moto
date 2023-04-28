@@ -29,7 +29,7 @@ const LoginPage = () => {
 
   let redirectFrom = location?.state?.from?.pathname || "/";
 
-  if(user){
+  if (user) {
     navigate(redirectFrom);
   }
 
@@ -44,7 +44,7 @@ const LoginPage = () => {
     event.preventDefault();
     await loginWithEmailAndPassword(email, password);
 
-    // await fetch("https://dry-depths-45686.herokuapp.com/login", {
+    // await fetch("https://garage-bikey-moto-server.vercel.app/login", {
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",

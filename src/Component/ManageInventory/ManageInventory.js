@@ -7,12 +7,12 @@ const ManageInventory = () => {
   const [inventories, setInventory] = useState([]);
 
   let itemNo = 0;
-  if(!inventories){
-      <Loading></Loading>
+  if (!inventories) {
+    <Loading></Loading>;
   }
 
   useEffect(() => {
-    fetch("https://dry-depths-45686.herokuapp.com/inventory")
+    fetch("https://garage-bikey-moto-server.vercel.app/inventory")
       .then((res) => res.json())
       .then((data) => setInventory(data));
   }, []);
@@ -22,7 +22,7 @@ const ManageInventory = () => {
       "Are you sure your want to delete this inventory"
     );
     if (proceed) {
-      fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
+      fetch(`https://garage-bikey-moto-server.vercel.app/inventory/${id}`, {
         method: "DELETE",
       })
         .then((resDelete) => resDelete.json())
@@ -39,11 +39,13 @@ const ManageInventory = () => {
     <div>
       <Container>
         <div className='d-flex justify-content-start'>
-          <Link to="/addNewInventory" className='btn btn-dark mt-4 ms-5'>
+          <Link to='/addNewInventory' className='btn btn-dark mt-4 ms-5'>
             Add New Inventory
           </Link>
         </div>
-        <h3 className="text-center fw-bold mt-4 text-decoration-underline">All INVENTORIES</h3>
+        <h3 className='text-center fw-bold mt-4 text-decoration-underline'>
+          All INVENTORIES
+        </h3>
         <Table bordered hover size='sm' className='mt-3'>
           <thead>
             <tr>
@@ -63,12 +65,7 @@ const ManageInventory = () => {
                 <td>{(itemNo = itemNo + 1)}</td>
                 <td>{inventory.name}</td>
                 <td>
-                  <img
-                    src={inventory.img}
-                    alt=''
-                    height={75}
-                    width={100}
-                  />
+                  <img src={inventory.img} alt='' height={75} width={100} />
                 </td>
                 <td>{inventory.supplier_name}</td>
                 <td>{inventory.price}</td>

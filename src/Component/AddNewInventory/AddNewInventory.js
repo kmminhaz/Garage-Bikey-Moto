@@ -16,9 +16,9 @@ const AddNewInventory = () => {
       description: data.description,
       price: data.price,
       quantity: data.quantity,
-      sold_out: data.sold_out
-    }
-    fetch("https://dry-depths-45686.herokuapp.com/inventory", {
+      sold_out: data.sold_out,
+    };
+    fetch("https://garage-bikey-moto-server.vercel.app/inventory", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -9,7 +9,7 @@ const Inventory = () => {
   let quantity = inventory.quantity;
 
   useEffect(() => {
-    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`)
+    fetch(`https://garage-bikey-moto-server.vercel.app/inventory/${id}`)
       .then((res) => res.json())
       .then((data) => setInventory(data));
   }, []);
@@ -17,7 +17,7 @@ const Inventory = () => {
   const deliveryInventory = () => {
     quantity = quantity - 1;
 
-    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
+    fetch(`https://garage-bikey-moto-server.vercel.app/inventory/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -26,20 +26,20 @@ const Inventory = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`)
+        fetch(`https://garage-bikey-moto-server.vercel.app/inventory/${id}`)
           .then((res) => res.json())
           .then((data) => setInventory(data));
       });
   };
 
-  const addItem = (event) =>{
+  const addItem = (event) => {
     event.preventDefault();
     const newInventory = event.target.newInventory.value;
     quantity = quantity + parseInt(newInventory);
 
     console.log(quantity);
 
-    fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
+    fetch(`https://garage-bikey-moto-server.vercel.app/inventory/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -48,11 +48,11 @@ const Inventory = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`)
+        fetch(`https://garage-bikey-moto-server.vercel.app/inventory/${id}`)
           .then((res) => res.json())
           .then((data) => setInventory(data));
       });
-  }
+  };
 
   return (
     <div>
@@ -78,7 +78,10 @@ const Inventory = () => {
             </h4>
           </div>
           <h4 className='py-3'>Sold Out : {inventory.sold_out} </h4>
-          <Button variant="dark" onClick={deliveryInventory}> Delivery </Button>
+          <Button variant='dark' onClick={deliveryInventory}>
+            {" "}
+            Delivery{" "}
+          </Button>
           <div className='d-flex justify-content-center pt-5 pb-3'>
             <Link to='/manageInventory' className='btn btn-dark'>
               {" "}
@@ -95,7 +98,10 @@ const Inventory = () => {
               name='newInventory'
             />{" "}
             <br />
-            <Button variant="dark" type='submit'> Add Items </Button>
+            <Button variant='dark' type='submit'>
+              {" "}
+              Add Items{" "}
+            </Button>
           </form>
         </div>
       </Container>

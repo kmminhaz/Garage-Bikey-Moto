@@ -8,19 +8,19 @@ const MyInventory = () => {
 
   let itemNo = 0;
 
-  useEffect( () => {
-      if(user.email){
-          fetch(
-            `https://dry-depths-45686.herokuapp.com/myInventory?email=${user.email}`,
-            {
-              headers: {
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-              },
-            }
-          )
-            .then((res) => res.json())
-            .then((data) => setInventory(data));
-      }
+  useEffect(() => {
+    if (user.email) {
+      fetch(
+        `https://garage-bikey-moto-server.vercel.app/myInventory?email=${user.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => setInventory(data));
+    }
   }, [user]);
 
   const deleteItem = (id) => {
@@ -28,7 +28,7 @@ const MyInventory = () => {
       "Are you sure your want to delete this inventory"
     );
     if (proceed) {
-      fetch(`https://dry-depths-45686.herokuapp.com/inventory/${id}`, {
+      fetch(`https://garage-bikey-moto-server.vercel.app/inventory/${id}`, {
         method: "DELETE",
       })
         .then((resDelete) => resDelete.json())
@@ -62,30 +62,30 @@ const MyInventory = () => {
           </thead>
           <tbody>
             {inventories.map((inventory) => (
-                <tr key={inventory._id}>
-                  <td>{(itemNo = itemNo + 1)}</td>
-                  <td>{inventory.name}</td>
-                  <td>
-                    <img src={inventory.img} alt='' height={75} width={100} />
-                  </td>
-                  <td>{inventory.supplier_name}</td>
-                  <td>{inventory.price}</td>
-                  <td>{inventory.quantity}</td>
-                  <td>{inventory.sold_out}</td>
-                  <td>
-                    <Button
-                      variant='danger'
-                      className='mx-2'
-                      onClick={() => {
-                        deleteItem(inventory._id);
-                      }}
-                    >
-                      {" "}
-                      Delete{" "}
-                    </Button>
-                  </td>
-                </tr>
-              ))}
+              <tr key={inventory._id}>
+                <td>{(itemNo = itemNo + 1)}</td>
+                <td>{inventory.name}</td>
+                <td>
+                  <img src={inventory.img} alt='' height={75} width={100} />
+                </td>
+                <td>{inventory.supplier_name}</td>
+                <td>{inventory.price}</td>
+                <td>{inventory.quantity}</td>
+                <td>{inventory.sold_out}</td>
+                <td>
+                  <Button
+                    variant='danger'
+                    className='mx-2'
+                    onClick={() => {
+                      deleteItem(inventory._id);
+                    }}
+                  >
+                    {" "}
+                    Delete{" "}
+                  </Button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </Container>

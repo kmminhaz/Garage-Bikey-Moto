@@ -8,14 +8,14 @@ import Loading from "../../Loading/Loading";
 
 const InventoryItems = () => {
   const [inventories, setInventory] = useState([]);
-  const [loading] = useAuthState(getAuth(app))
+  const [loading] = useAuthState(getAuth(app));
 
-  if(loading){
-    <Loading/>
+  if (loading) {
+    <Loading />;
   }
 
   useEffect(() => {
-    fetch("https://dry-depths-45686.herokuapp.com/inventory")
+    fetch("https://garage-bikey-moto-server.vercel.app/inventory")
       .then((res) => res.json())
       .then((data) => setInventory(data));
   }, []);
@@ -70,7 +70,7 @@ const InventoryItems = () => {
           ))}
         </Row>
         <div className='d-flex justify-content-center pt-5'>
-          <Link to='/manageInventory' className="btn btn-dark">
+          <Link to='/manageInventory' className='btn btn-dark'>
             {" "}
             Manage Inventories{" "}
           </Link>
